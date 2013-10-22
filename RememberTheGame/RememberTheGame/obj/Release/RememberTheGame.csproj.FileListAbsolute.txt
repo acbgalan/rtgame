@@ -1,0 +1,11 @@
+D:\Workspace\Visual Studio 2012\CSharp\Remember The Game\RememberTheGame\RememberTheGame\bin\Release\rtgame.mdf
+D:\Workspace\Visual Studio 2012\CSharp\Remember The Game\RememberTheGame\RememberTheGame\bin\Release\rtgame_log.ldf
+D:\Workspace\Visual Studio 2012\CSharp\Remember The Game\RememberTheGame\RememberTheGame\bin\Release\RememberTheGame.exe
+D:\Workspace\Visual Studio 2012\CSharp\Remember The Game\RememberTheGame\RememberTheGame\bin\Release\RememberTheGame.pdb
+D:\Workspace\Visual Studio 2012\CSharp\Remember The Game\RememberTheGame\RememberTheGame\obj\Release\RememberTheGame.csprojResolveAssemblyReference.cache
+D:\Workspace\Visual Studio 2012\CSharp\Remember The Game\RememberTheGame\RememberTheGame\obj\Release\RememberTheGame.FrmPrincipal.resources
+D:\Workspace\Visual Studio 2012\CSharp\Remember The Game\RememberTheGame\RememberTheGame\obj\Release\RememberTheGame.Properties.Resources.resources
+D:\Workspace\Visual Studio 2012\CSharp\Remember The Game\RememberTheGame\RememberTheGame\obj\Release\RememberTheGame.csproj.GenerateResource.Cache
+D:\Workspace\Visual Studio 2012\CSharp\Remember The Game\RememberTheGame\RememberTheGame\obj\Release\RememberTheGame.exe
+D:\Workspace\Visual Studio 2012\CSharp\Remember The Game\RememberTheGame\RememberTheGame\obj\Release\RememberTheGame.pdb
+D:\Workspace\Visual Studio 2012\CSharp\Remember The Game\RememberTheGame\RememberTheGame\obj\Release\RememberTheGame.FrmGenero.resources

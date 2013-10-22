@@ -1,0 +1,21 @@
+D:\Workspace\Proyectos\Remember The Game\RememberTheGame\RememberTheGame\bin\Debug\RememberTheGame.exe
+D:\Workspace\Proyectos\Remember The Game\RememberTheGame\RememberTheGame\bin\Debug\RememberTheGame.pdb
+D:\Workspace\Proyectos\Remember The Game\RememberTheGame\RememberTheGame\obj\Debug\RememberTheGame.csprojResolveAssemblyReference.cache
+D:\Workspace\Proyectos\Remember The Game\RememberTheGame\RememberTheGame\obj\Debug\RememberTheGame.FrmPrincipal.resources
+D:\Workspace\Proyectos\Remember The Game\RememberTheGame\RememberTheGame\obj\Debug\RememberTheGame.Properties.Resources.resources
+D:\Workspace\Proyectos\Remember The Game\RememberTheGame\RememberTheGame\obj\Debug\RememberTheGame.csproj.GenerateResource.Cache
+D:\Workspace\Proyectos\Remember The Game\RememberTheGame\RememberTheGame\obj\Debug\RememberTheGame.exe
+D:\Workspace\Proyectos\Remember The Game\RememberTheGame\RememberTheGame\obj\Debug\RememberTheGame.pdb
+D:\Workspace\Proyectos\Remember The Game\RememberTheGame\RememberTheGame\bin\Debug\rtgame.mdf
+D:\Workspace\Proyectos\Remember The Game\RememberTheGame\RememberTheGame\bin\Debug\rtgame_log.ldf
+D:\Workspace\Visual Studio 2012\CSharp\Remember The Game\RememberTheGame\RememberTheGame\obj\Debug\RememberTheGame.exe
+D:\Workspace\Visual Studio 2012\CSharp\Remember The Game\RememberTheGame\RememberTheGame\obj\Debug\RememberTheGame.pdb
+D:\Workspace\Visual Studio 2012\CSharp\Remember The Game\RememberTheGame\RememberTheGame\bin\Debug\rtgame.mdf
+D:\Workspace\Visual Studio 2012\CSharp\Remember The Game\RememberTheGame\RememberTheGame\bin\Debug\rtgame_log.ldf
+D:\Workspace\Visual Studio 2012\CSharp\Remember The Game\RememberTheGame\RememberTheGame\bin\Debug\RememberTheGame.exe
+D:\Workspace\Visual Studio 2012\CSharp\Remember The Game\RememberTheGame\RememberTheGame\bin\Debug\RememberTheGame.pdb
+D:\Workspace\Visual Studio 2012\CSharp\Remember The Game\RememberTheGame\RememberTheGame\obj\Debug\RememberTheGame.csprojResolveAssemblyReference.cache
+D:\Workspace\Visual Studio 2012\CSharp\Remember The Game\RememberTheGame\RememberTheGame\obj\Debug\RememberTheGame.FrmPrincipal.resources
+D:\Workspace\Visual Studio 2012\CSharp\Remember The Game\RememberTheGame\RememberTheGame\obj\Debug\RememberTheGame.Properties.Resources.resources
+D:\Workspace\Visual Studio 2012\CSharp\Remember The Game\RememberTheGame\RememberTheGame\obj\Debug\RememberTheGame.csproj.GenerateResource.Cache
+D:\Workspace\Visual Studio 2012\CSharp\Remember The Game\RememberTheGame\RememberTheGame\obj\Debug\RememberTheGame.FrmGenero.resources
