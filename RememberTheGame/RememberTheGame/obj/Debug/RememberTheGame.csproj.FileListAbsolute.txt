@@ -19,3 +19,15 @@ D:\Workspace\Visual Studio 2012\CSharp\Remember The Game\RememberTheGame\Remembe
 D:\Workspace\Visual Studio 2012\CSharp\Remember The Game\RememberTheGame\RememberTheGame\obj\Debug\RememberTheGame.Properties.Resources.resources
 D:\Workspace\Visual Studio 2012\CSharp\Remember The Game\RememberTheGame\RememberTheGame\obj\Debug\RememberTheGame.csproj.GenerateResource.Cache
 D:\Workspace\Visual Studio 2012\CSharp\Remember The Game\RememberTheGame\RememberTheGame\obj\Debug\RememberTheGame.FrmGenero.resources
+D:\Workspace\GitHub\rtgame\RememberTheGame\RememberTheGame\obj\Debug\RememberTheGame.exe
+D:\Workspace\GitHub\rtgame\RememberTheGame\RememberTheGame\obj\Debug\RememberTheGame.pdb
+D:\Workspace\GitHub\rtgame\RememberTheGame\RememberTheGame\bin\Debug\rtgame.mdf
+D:\Workspace\GitHub\rtgame\RememberTheGame\RememberTheGame\bin\Debug\rtgame_log.ldf
+D:\Workspace\GitHub\rtgame\RememberTheGame\RememberTheGame\bin\Debug\RememberTheGame.exe
+D:\Workspace\GitHub\rtgame\RememberTheGame\RememberTheGame\bin\Debug\RememberTheGame.pdb
+D:\Workspace\GitHub\rtgame\RememberTheGame\RememberTheGame\obj\Debug\RememberTheGame.csprojResolveAssemblyReference.cache
+D:\Workspace\GitHub\rtgame\RememberTheGame\RememberTheGame\obj\Debug\RememberTheGame.FrmGenero.resources
+D:\Workspace\GitHub\rtgame\RememberTheGame\RememberTheGame\obj\Debug\RememberTheGame.FrmPrincipal.resources
+D:\Workspace\GitHub\rtgame\RememberTheGame\RememberTheGame\obj\Debug\RememberTheGame.Properties.Resources.resources
+D:\Workspace\GitHub\rtgame\RememberTheGame\RememberTheGame\obj\Debug\RememberTheGame.csproj.GenerateResource.Cache
+D:\Workspace\GitHub\rtgame\RememberTheGame\RememberTheGame\obj\Debug\RememberTheGame.FrmPlataforma.resources

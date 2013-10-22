@@ -91,6 +91,9 @@
     <EmbeddedResource Include="FrmGenero.resx">
       <DependentUpon>FrmGenero.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmPlataforma.resx">
+      <DependentUpon>FrmPlataforma.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>

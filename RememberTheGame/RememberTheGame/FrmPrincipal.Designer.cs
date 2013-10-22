@@ -32,21 +32,25 @@
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ediciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.añadirJuegoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarVerJuegoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.borrarJuegoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.añadirCategoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarCategoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.borrarCategoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.añadirPlataformaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarPlataformaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.borrarPlataformaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeRememberTheGamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tvxPlataformas = new System.Windows.Forms.TreeView();
             this.dgvJuegos = new System.Windows.Forms.DataGridView();
-            this.añadirPlataformaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarPlataformaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.borrarPlataformaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -80,13 +84,17 @@
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // ediciónToolStripMenuItem
             // 
             this.ediciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.añadirJuegoToolStripMenuItem,
+            this.editarVerJuegoToolStripMenuItem,
+            this.borrarJuegoToolStripMenuItem,
+            this.toolStripSeparator2,
             this.añadirCategoriaToolStripMenuItem,
             this.editarCategoriaToolStripMenuItem,
             this.borrarCategoriaToolStripMenuItem,
@@ -98,28 +106,87 @@
             this.ediciónToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.ediciónToolStripMenuItem.Text = "Edición";
             // 
+            // añadirJuegoToolStripMenuItem
+            // 
+            this.añadirJuegoToolStripMenuItem.Name = "añadirJuegoToolStripMenuItem";
+            this.añadirJuegoToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.añadirJuegoToolStripMenuItem.Text = "Añadir Juego";
+            // 
+            // editarVerJuegoToolStripMenuItem
+            // 
+            this.editarVerJuegoToolStripMenuItem.Name = "editarVerJuegoToolStripMenuItem";
+            this.editarVerJuegoToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.editarVerJuegoToolStripMenuItem.Text = "Editar/Ver Juego";
+            // 
+            // borrarJuegoToolStripMenuItem
+            // 
+            this.borrarJuegoToolStripMenuItem.Name = "borrarJuegoToolStripMenuItem";
+            this.borrarJuegoToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.borrarJuegoToolStripMenuItem.Text = "Borrar Juego";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(167, 6);
+            // 
             // añadirCategoriaToolStripMenuItem
             // 
             this.añadirCategoriaToolStripMenuItem.Name = "añadirCategoriaToolStripMenuItem";
             this.añadirCategoriaToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.añadirCategoriaToolStripMenuItem.Text = "Añadir Genero";
+            this.añadirCategoriaToolStripMenuItem.Click += new System.EventHandler(this.añadirCategoriaToolStripMenuItem_Click);
             // 
             // editarCategoriaToolStripMenuItem
             // 
             this.editarCategoriaToolStripMenuItem.Name = "editarCategoriaToolStripMenuItem";
             this.editarCategoriaToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.editarCategoriaToolStripMenuItem.Text = "Editar Genero";
+            this.editarCategoriaToolStripMenuItem.Click += new System.EventHandler(this.editarCategoriaToolStripMenuItem_Click);
             // 
             // borrarCategoriaToolStripMenuItem
             // 
             this.borrarCategoriaToolStripMenuItem.Name = "borrarCategoriaToolStripMenuItem";
             this.borrarCategoriaToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.borrarCategoriaToolStripMenuItem.Text = "Borrar Genero";
+            this.borrarCategoriaToolStripMenuItem.Click += new System.EventHandler(this.borrarCategoriaToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(167, 6);
+            // 
+            // añadirPlataformaToolStripMenuItem
+            // 
+            this.añadirPlataformaToolStripMenuItem.Name = "añadirPlataformaToolStripMenuItem";
+            this.añadirPlataformaToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.añadirPlataformaToolStripMenuItem.Text = "Añadir Plataforma";
+            this.añadirPlataformaToolStripMenuItem.Click += new System.EventHandler(this.añadirPlataformaToolStripMenuItem_Click);
+            // 
+            // editarPlataformaToolStripMenuItem
+            // 
+            this.editarPlataformaToolStripMenuItem.Name = "editarPlataformaToolStripMenuItem";
+            this.editarPlataformaToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.editarPlataformaToolStripMenuItem.Text = "Editar Plataforma";
+            this.editarPlataformaToolStripMenuItem.Click += new System.EventHandler(this.editarPlataformaToolStripMenuItem_Click);
+            // 
+            // borrarPlataformaToolStripMenuItem
+            // 
+            this.borrarPlataformaToolStripMenuItem.Name = "borrarPlataformaToolStripMenuItem";
+            this.borrarPlataformaToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.borrarPlataformaToolStripMenuItem.Text = "Borrar Plataforma";
+            this.borrarPlataformaToolStripMenuItem.Click += new System.EventHandler(this.borrarPlataformaToolStripMenuItem_Click);
+            // 
+            // verToolStripMenuItem
+            // 
+            this.verToolStripMenuItem.Name = "verToolStripMenuItem";
+            this.verToolStripMenuItem.Size = new System.Drawing.Size(36, 20);
+            this.verToolStripMenuItem.Text = "Ver";
+            // 
+            // herramientasToolStripMenuItem
+            // 
+            this.herramientasToolStripMenuItem.Name = "herramientasToolStripMenuItem";
+            this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
+            this.herramientasToolStripMenuItem.Text = "Herramientas";
             // 
             // ayudaToolStripMenuItem
             // 
@@ -183,36 +250,6 @@
             this.dgvJuegos.Size = new System.Drawing.Size(681, 676);
             this.dgvJuegos.TabIndex = 0;
             // 
-            // añadirPlataformaToolStripMenuItem
-            // 
-            this.añadirPlataformaToolStripMenuItem.Name = "añadirPlataformaToolStripMenuItem";
-            this.añadirPlataformaToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.añadirPlataformaToolStripMenuItem.Text = "Añadir Plataforma";
-            // 
-            // editarPlataformaToolStripMenuItem
-            // 
-            this.editarPlataformaToolStripMenuItem.Name = "editarPlataformaToolStripMenuItem";
-            this.editarPlataformaToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.editarPlataformaToolStripMenuItem.Text = "Editar Plataforma";
-            // 
-            // borrarPlataformaToolStripMenuItem
-            // 
-            this.borrarPlataformaToolStripMenuItem.Name = "borrarPlataformaToolStripMenuItem";
-            this.borrarPlataformaToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.borrarPlataformaToolStripMenuItem.Text = "Borrar Plataforma";
-            // 
-            // verToolStripMenuItem
-            // 
-            this.verToolStripMenuItem.Name = "verToolStripMenuItem";
-            this.verToolStripMenuItem.Size = new System.Drawing.Size(36, 20);
-            this.verToolStripMenuItem.Text = "Ver";
-            // 
-            // herramientasToolStripMenuItem
-            // 
-            this.herramientasToolStripMenuItem.Name = "herramientasToolStripMenuItem";
-            this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
-            this.herramientasToolStripMenuItem.Text = "Herramientas";
-            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,6 +258,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmPrincipal";
             this.Text = "Remember The Game";
@@ -258,6 +296,10 @@
         private System.Windows.Forms.ToolStripMenuItem borrarPlataformaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem herramientasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem añadirJuegoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editarVerJuegoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem borrarJuegoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
 
     }
 }

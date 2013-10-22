@@ -11,9 +11,11 @@ using System.Windows.Forms;
 
 namespace RememberTheGame
 {
+    // Enumerado con los tipos de operaciones que se pueden realizar
+    public enum Operaciones { add, edit, delete };
+
     public partial class FrmPrincipal : Form
     {
-
         /////////////////////////////////////////////////////////////////////////////////
         // Campos o atributos
         private ConexionLocalDB conexionldb;
@@ -64,8 +66,8 @@ namespace RememberTheGame
             using (SqlConnection cn = this.conexionldb.DameConexionLocalDB())
             {
                 cn.Open();
-                SqlDataAdapter da = new SqlDataAdapter(sql, cn);
                 DataSet ds = new DataSet();
+                SqlDataAdapter da = new SqlDataAdapter(sql, cn);                
                 SqlCommandBuilder cmmdBuilder = new SqlCommandBuilder(da);
                 da.Fill(ds, nombreRaiz);
 
@@ -170,6 +172,46 @@ namespace RememberTheGame
         {
             FrmAcerca acerca = new FrmAcerca();
             acerca.Show();
+        }
+
+        private void añadirCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGenero addGenero = new FrmGenero(Operaciones.add);
+            addGenero.Show();
+
+        }
+
+        // POR HACER -------------------
+        private void editarCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGenero editGenero = new FrmGenero(Operaciones.edit);
+            editGenero.Show();
+        }
+
+        // POR HACER -------------------
+        private void borrarCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // POR HACER -------------------
+        private void añadirPlataformaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmPlataforma addPlataforma = new FrmPlataforma();
+            addPlataforma.Show();
+        }
+
+        // POR HACER -------------------
+        private void editarPlataformaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmPlataforma editPlataforma = new FrmPlataforma();
+            editPlataforma.Show();
+        }
+
+        // POR HACER -------------------
+        private void borrarPlataformaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
 
