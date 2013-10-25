@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuPrincipal = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ediciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,11 +47,14 @@
             this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeRememberTheGamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.statusPrincipal = new System.Windows.Forms.StatusStrip();
+            this.slbFiltroPadre = new System.Windows.Forms.ToolStripStatusLabel();
+            this.slbFiltroHijo = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tvxPlataformas = new System.Windows.Forms.TreeView();
             this.dgvJuegos = new System.Windows.Forms.DataGridView();
-            this.menuStrip1.SuspendLayout();
+            this.menuPrincipal.SuspendLayout();
+            this.statusPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -59,19 +62,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvJuegos)).BeginInit();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // menuPrincipal
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem,
             this.ediciónToolStripMenuItem,
             this.verToolStripMenuItem,
             this.herramientasToolStripMenuItem,
             this.ayudaToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1024, 24);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.menuPrincipal.Name = "menuPrincipal";
+            this.menuPrincipal.Size = new System.Drawing.Size(1024, 24);
+            this.menuPrincipal.TabIndex = 2;
+            this.menuPrincipal.Text = "menuStrip1";
             // 
             // archivoToolStripMenuItem
             // 
@@ -203,13 +206,27 @@
             this.acercaDeRememberTheGamToolStripMenuItem.Text = "Acerca de Remember The Game";
             this.acercaDeRememberTheGamToolStripMenuItem.Click += new System.EventHandler(this.acercaDeRememberTheGamToolStripMenuItem_Click);
             // 
-            // statusStrip1
+            // statusPrincipal
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 700);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1024, 22);
-            this.statusStrip1.TabIndex = 3;
-            this.statusStrip1.Text = "statusStrip1";
+            this.statusPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.slbFiltroPadre,
+            this.slbFiltroHijo});
+            this.statusPrincipal.Location = new System.Drawing.Point(0, 700);
+            this.statusPrincipal.Name = "statusPrincipal";
+            this.statusPrincipal.Size = new System.Drawing.Size(1024, 22);
+            this.statusPrincipal.TabIndex = 3;
+            // 
+            // slbFiltroPadre
+            // 
+            this.slbFiltroPadre.Name = "slbFiltroPadre";
+            this.slbFiltroPadre.Size = new System.Drawing.Size(67, 17);
+            this.slbFiltroPadre.Text = "Filtro Padre";
+            // 
+            // slbFiltroHijo
+            // 
+            this.slbFiltroHijo.Name = "slbFiltroHijo";
+            this.slbFiltroHijo.Size = new System.Drawing.Size(59, 17);
+            this.slbFiltroHijo.Text = "Filtro Hijo";
             // 
             // splitContainer1
             // 
@@ -256,15 +273,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 722);
             this.Controls.Add(this.splitContainer1);
-            this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.menuStrip1);
-            this.IsMdiContainer = true;
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.statusPrincipal);
+            this.Controls.Add(this.menuPrincipal);
+            this.MainMenuStrip = this.menuPrincipal;
             this.Name = "FrmPrincipal";
             this.Text = "Remember The Game";
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuPrincipal.ResumeLayout(false);
+            this.menuPrincipal.PerformLayout();
+            this.statusPrincipal.ResumeLayout(false);
+            this.statusPrincipal.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -277,10 +295,10 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuPrincipal;
         private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acercaDeRememberTheGamToolStripMenuItem;
-        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.StatusStrip statusPrincipal;
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainer1;
@@ -300,6 +318,8 @@
         private System.Windows.Forms.ToolStripMenuItem editarVerJuegoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem borrarJuegoToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripStatusLabel slbFiltroPadre;
+        private System.Windows.Forms.ToolStripStatusLabel slbFiltroHijo;
 
     }
 }

@@ -16,16 +16,43 @@ namespace RememberTheGame
         /////////////////////////////////////////////////////////////////////////////////
         // Campos o atributos
 
+        private FrmPrincipal frmPadre;
+
         private ConexionLocalDB conexionldb;
         private Operaciones tipo_operacion;
-        
-        public FrmGenero(Operaciones operacion)
+        private String nodoPadre;
+        private String nodoHijo;
+        private Int32 IdGenero;
+
+
+        /////////////////////////////////////////////////////////////////////////////////
+        // Constructores
+        public FrmGenero(Operaciones operacion, FrmPrincipal padre)
         {
             InitializeComponent();
+
+            this.frmPadre = padre;
             this.conexionldb = new ConexionLocalDB();
             this.tipo_operacion = operacion;
+            this.nodoPadre = String.Empty;
+            this.nodoHijo = String.Empty;
+
         }
 
+        public FrmGenero(Operaciones operacion, FrmPrincipal padre, String nodoPadre, String nodoHijo)
+        {
+            InitializeComponent();
+
+            this.frmPadre = padre;
+            this.conexionldb = new ConexionLocalDB();
+            this.tipo_operacion = operacion;
+            this.nodoPadre = nodoPadre;
+            this.nodoHijo = nodoHijo;
+        }
+
+
+        /////////////////////////////////////////////////////////////////////////////////
+        // Métodos
         private void FrmGenero_Load(object sender, EventArgs e)
         {
             switch (this.tipo_operacion)
@@ -34,21 +61,49 @@ namespace RememberTheGame
                     lbIdGeneroResultado.Text = "Auto";                                       
                     break;
                 case Operaciones.edit:
-                    MessageBox.Show("El tipo de operación seleccionada es: " + Convert.ToString(this.tipo_operacion));
+                    rellenarDatosCategoria();
+                    break;
+                default:
+                    MessageBox.Show("Caso no esperado", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    break;
+            }            
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            switch (this.tipo_operacion)
+            {
+                case Operaciones.add:
+                    addCategoria();
+                    break;
+                case Operaciones.edit:
+                    editCategoria();
                     break;
                 default:
                     MessageBox.Show("Caso no esperado", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     break;
             }
-            
+            // Actualizamos TreeView del formulario principal            
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        // Instrucciones para añadir una nueva categoria
+        private void addCategoria()
         {
             String sql = "SELECT IdGenero, Nombre, Descripcion FROM Generos;";
 
             String nombre = txbNombre.Text.Trim();
             String descripcion = txbDescripcion.Text.Trim();
+
+            // El genero debe tener un nombre
+            if (nombre == String.Empty)
+            {
+                return;
+            }
 
             try
             {
@@ -74,10 +129,72 @@ namespace RememberTheGame
                     {
                         // Registramos cambio en la BD
                         da.Update(ds, "Generos");
+                        // Actualizamos el TreeView del formulario principal
+                        frmPadre.RellenarTreeView();
                     }
 
-                    this.Close();                    
-                } 
+                    this.Close();
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Se ha producido una excepción." + ex.Message, "¡Atención!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }            
+        }
+
+        // Instrucciones para editar/actualizar una categoria
+        private void editCategoria()
+        {
+            String sql = "SELECT IdGenero, Nombre, Descripcion FROM Generos WHERE IdGenero = @IdGenero;";
+
+            String nombre = txbNombre.Text.Trim();
+            String descripcion = txbDescripcion.Text.Trim();
+
+            // El genero debe tener un nombre
+            if (nombre == String.Empty)
+            {
+                return;
+            }
+
+            try
+            {
+                using (SqlConnection cn = this.conexionldb.DameConexionLocalDB())
+                {
+                    cn.Open();
+
+                    // Creamos un dataSet con el contenido de la tabla generos
+                    DataSet ds = new DataSet();
+                    SqlCommand cmmd = new SqlCommand(sql, cn);
+                    SqlParameter paramIdGenero = new SqlParameter("@IdGenero", this.IdGenero);
+                    cmmd.Parameters.Add(paramIdGenero);
+                    SqlDataAdapter da = new SqlDataAdapter(cmmd);                    
+                    SqlCommandBuilder cmdBuilder = new SqlCommandBuilder(da);
+                    da.Fill(ds, "Generos");
+
+                    if (ds.Tables["Generos"].Rows.Count == 1)
+                    {
+                        DataRow editarGenero = ds.Tables["Generos"].Rows[0];
+
+                        editarGenero["Nombre"] = nombre;
+                        editarGenero["Descripcion"] = descripcion;
+
+                        DialogResult dresult = MessageBox.Show("¿Estas seguro de actualizar los datos del genero?", "Actualizar genero", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (dresult == DialogResult.Yes)
+                        {
+                            // Registramos los cambios
+                            da.Update(ds, "Generos");
+                            // Actualizamos el TreeView del formulario principal
+                            frmPadre.RellenarTreeView();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Caso no esperado.", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }                                  
+
+                    this.Close();
+                }
             }
             catch (SqlException ex)
             {
@@ -85,11 +202,36 @@ namespace RememberTheGame
             }
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        // Rellena los datos en los textbox cuando se trata de editar/actualizar una categoria
+        private void rellenarDatosCategoria()
+        {            
+            String sql = "SELECT IdGenero, Nombre, Descripcion FROM Generos WHERE Nombre = @nombreGenero;";
 
+            using (SqlConnection cn = this.conexionldb.DameConexionLocalDB())
+            {
+                cn.Open();
+
+                DataSet ds = new DataSet();
+                SqlCommand cmmd = new SqlCommand(sql, cn);
+                SqlParameter paramNombreGenero = new SqlParameter("@nombreGenero", this.nodoHijo);
+                cmmd.Parameters.Add(paramNombreGenero);
+                SqlDataAdapter da = new SqlDataAdapter(cmmd);
+                da.Fill(ds, "Generos");
+
+                if (ds.Tables["Generos"].Rows.Count == 1)
+                {
+                    DataRow filaGenero = ds.Tables["Generos"].Rows[0];
+                    this.IdGenero = Convert.ToInt32(filaGenero["IdGenero"]);
+                    lbIdGeneroResultado.Text = Convert.ToString(this.IdGenero);
+                    txbNombre.Text = Convert.ToString(filaGenero["Nombre"]);
+                    txbDescripcion.Text = Convert.ToString(filaGenero["Descripcion"]);
+                }
+                else
+                {
+                    MessageBox.Show("Caso no esperado. No pueden exister generos con el nombre repetido", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
 
     } // class
 } // namespace

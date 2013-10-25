@@ -20,6 +20,9 @@ namespace RememberTheGame
         // Campos o atributos
         private ConexionLocalDB conexionldb;
 
+        private String nodoPadre;
+        private String nodoHijo;
+
 
         /////////////////////////////////////////////////////////////////////////////////
         // Constructor
@@ -39,7 +42,7 @@ namespace RememberTheGame
 
         
         // Rellena de datos el TreeView
-        private void RellenarTreeView()
+        internal void RellenarTreeView()
         {
             // IdGnero, Nombre, NumJuegos
             String generosSql = "SELECT g.IdGenero, g.Nombre, COUNT(j.IdJuego) AS NumJuegos " +
@@ -55,7 +58,7 @@ namespace RememberTheGame
 
             tvxPlataformas.Nodes.Clear();
             tvxPlataformas.Nodes.Add(ObtenerTreeNode("Generos", generosSql));
-            tvxPlataformas.Nodes.Add(ObtenerTreeNode("Plataformas", plataformasSql));
+            tvxPlataformas.Nodes.Add(ObtenerTreeNode("Plataformas", plataformasSql));            
         }
 
         // Devuelve un objeto TreeNode para ser agregado al TreeView
@@ -92,7 +95,7 @@ namespace RememberTheGame
             String cmmdSql = "";
 
             using (SqlConnection cn = this.conexionldb.DameConexionLocalDB())
-            {
+            {                
                 if (filtro != "")
                 {
                     switch (consulta)
@@ -144,48 +147,52 @@ namespace RememberTheGame
 
         private void tvxPlataformas_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            String nodoPadre;
-            String nodoHijo = "";
+            // Averiguamos que nodos están seleccionados
+            this.nodoHijo = String.Empty;
 
-            // Si no existe padre estamos en un nodo raiz
+            // Si no existe padre es que estamos en el nodo padre
             if (e.Node.Parent == null)
             {
-                nodoPadre = e.Node.Text;
-                nodoHijo = "";
+                this.nodoPadre = e.Node.Text;
             }
             else
             {
-                nodoPadre = e.Node.Parent.Text;
+                this.nodoPadre = e.Node.Parent.Text;
 
                 Int32 posInicioHijo = e.Node.Text.IndexOf(")") + 2;
 
                 for (Int32 i = posInicioHijo; i < e.Node.Text.Length; i++)
                 {
-                    nodoHijo +=  Convert.ToString(e.Node.Text[i]);                                        
+                    this.nodoHijo +=  Convert.ToString(e.Node.Text[i]);                                        
                 }                
             }
-           
-            RellenarDataGrid(nodoPadre, nodoHijo);
+
+            RellenarDataGrid(this.nodoPadre, this.nodoHijo);
+
+            statusPrincipal.Items["slbFiltroPadre"].Text = this.nodoPadre;
+            statusPrincipal.Items["slbFiltroHijo"].Text = this.nodoHijo;
         }
 
         private void acercaDeRememberTheGamToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmAcerca acerca = new FrmAcerca();
-            acerca.Show();
+            acerca.ShowDialog(this);
         }
 
         private void añadirCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmGenero addGenero = new FrmGenero(Operaciones.add);
-            addGenero.Show();
-
+            FrmGenero addGenero = new FrmGenero(Operaciones.add, this);
+            addGenero.ShowDialog(this);
         }
 
-        // POR HACER -------------------
         private void editarCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmGenero editGenero = new FrmGenero(Operaciones.edit);
-            editGenero.Show();
+            // Debe estar seleccionado el nodo Generos y una sus subcategorias
+            if (this.nodoPadre == "Generos" && this.nodoHijo != String.Empty)
+            {
+                FrmGenero editGenero = new FrmGenero(Operaciones.edit, this,  this.nodoPadre, this.nodoHijo);
+                editGenero.ShowDialog(this);
+            }            
         }
 
         // POR HACER -------------------

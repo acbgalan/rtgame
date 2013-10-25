@@ -24,8 +24,9 @@ namespace RememberTheGame
         public ConexionLocalDB()
         {
             this.dataSource = @"(LocalDB)\v11.0";
-            this.attachDBFilename = @"|DataDirectory|\rtgame.mdf";
-            this.integratedSecurity = true;
+            //this.attachDBFilename = @"|DataDirectory|\rtgame.mdf";
+            this.attachDBFilename = @"D:\Workspace\GitHub\rtgame\RememberTheGame\RememberTheGame\rtgame.mdf";
+            this.integratedSecurity = true;            
         }
         
         /*-------------------------------------------------------------------------
