@@ -36,9 +36,9 @@
             this.editarVerJuegoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.borrarJuegoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.añadirCategoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarCategoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.borrarCategoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.añadirGeneroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarGeneroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.borrarGeneroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.añadirPlataformaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarPlataformaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -98,9 +98,9 @@
             this.editarVerJuegoToolStripMenuItem,
             this.borrarJuegoToolStripMenuItem,
             this.toolStripSeparator2,
-            this.añadirCategoriaToolStripMenuItem,
-            this.editarCategoriaToolStripMenuItem,
-            this.borrarCategoriaToolStripMenuItem,
+            this.añadirGeneroToolStripMenuItem,
+            this.editarGeneroToolStripMenuItem,
+            this.borrarGeneroToolStripMenuItem,
             this.toolStripSeparator1,
             this.añadirPlataformaToolStripMenuItem,
             this.editarPlataformaToolStripMenuItem,
@@ -132,26 +132,26 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(167, 6);
             // 
-            // añadirCategoriaToolStripMenuItem
+            // añadirGeneroToolStripMenuItem
             // 
-            this.añadirCategoriaToolStripMenuItem.Name = "añadirCategoriaToolStripMenuItem";
-            this.añadirCategoriaToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.añadirCategoriaToolStripMenuItem.Text = "Añadir Genero";
-            this.añadirCategoriaToolStripMenuItem.Click += new System.EventHandler(this.añadirCategoriaToolStripMenuItem_Click);
+            this.añadirGeneroToolStripMenuItem.Name = "añadirGeneroToolStripMenuItem";
+            this.añadirGeneroToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.añadirGeneroToolStripMenuItem.Text = "Añadir Genero";
+            this.añadirGeneroToolStripMenuItem.Click += new System.EventHandler(this.añadirGeneroToolStripMenuItem_Click);
             // 
-            // editarCategoriaToolStripMenuItem
+            // editarGeneroToolStripMenuItem
             // 
-            this.editarCategoriaToolStripMenuItem.Name = "editarCategoriaToolStripMenuItem";
-            this.editarCategoriaToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.editarCategoriaToolStripMenuItem.Text = "Editar Genero";
-            this.editarCategoriaToolStripMenuItem.Click += new System.EventHandler(this.editarCategoriaToolStripMenuItem_Click);
+            this.editarGeneroToolStripMenuItem.Name = "editarGeneroToolStripMenuItem";
+            this.editarGeneroToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.editarGeneroToolStripMenuItem.Text = "Editar Genero";
+            this.editarGeneroToolStripMenuItem.Click += new System.EventHandler(this.editarGeneroToolStripMenuItem_Click);
             // 
-            // borrarCategoriaToolStripMenuItem
+            // borrarGeneroToolStripMenuItem
             // 
-            this.borrarCategoriaToolStripMenuItem.Name = "borrarCategoriaToolStripMenuItem";
-            this.borrarCategoriaToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.borrarCategoriaToolStripMenuItem.Text = "Borrar Genero";
-            this.borrarCategoriaToolStripMenuItem.Click += new System.EventHandler(this.borrarCategoriaToolStripMenuItem_Click);
+            this.borrarGeneroToolStripMenuItem.Name = "borrarGeneroToolStripMenuItem";
+            this.borrarGeneroToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.borrarGeneroToolStripMenuItem.Text = "Borrar Genero";
+            this.borrarGeneroToolStripMenuItem.Click += new System.EventHandler(this.borrarGeneroToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -305,9 +305,9 @@
         private System.Windows.Forms.TreeView tvxPlataformas;
         private System.Windows.Forms.DataGridView dgvJuegos;
         private System.Windows.Forms.ToolStripMenuItem ediciónToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem añadirCategoriaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editarCategoriaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem borrarCategoriaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem añadirGeneroToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editarGeneroToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem borrarGeneroToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem añadirPlataformaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarPlataformaToolStripMenuItem;

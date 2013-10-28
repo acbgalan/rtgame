@@ -45,14 +45,22 @@ namespace RememberTheGame
         internal void RellenarTreeView()
         {
             // IdGnero, Nombre, NumJuegos
-            String generosSql = "SELECT g.IdGenero, g.Nombre, COUNT(j.IdJuego) AS NumJuegos " +
+            /*String generosSql = "SELECT g.IdGenero, g.Nombre, COUNT(j.IdJuego) AS NumJuegos " +
                 "FROM dbo.Juegos AS j INNER JOIN dbo.Juegos_has_Generos AS jg ON j.IdJuego = jg.IdJuego INNER JOIN dbo.Generos AS g ON jg.IdGenero = g.IdGenero " +
+                "GROUP BY g.IdGenero, g.Nombre " +
+                "ORDER BY g.Nombre;";*/
+            String generosSql = "SELECT g.IdGenero, g.Nombre, COUNT(j.IdJuego) AS NumJuegos " +
+                "FROM dbo.Juegos AS j INNER JOIN dbo.Juegos_has_Generos AS jg ON j.IdJuego = jg.IdJuego RIGHT OUTER JOIN dbo.Generos AS g ON jg.IdGenero = g.IdGenero " +
                 "GROUP BY g.IdGenero, g.Nombre " +
                 "ORDER BY g.Nombre;";
             
             //IdPlataforma, Nombre, NumJuegos
-            String plataformasSql = "SELECT p.IdPlataforma, p.Nombre, COUNT(j.IdJuego) AS NumJuegos " +
+            /*String plataformasSql = "SELECT p.IdPlataforma, p.Nombre, COUNT(j.IdJuego) AS NumJuegos " +
                 "FROM dbo.Juegos AS j INNER JOIN dbo.Plataformas AS p ON j.IdPlataforma = p.IdPlataforma " +
+                "GROUP BY p.IdPlataforma, p.Nombre " +
+                "ORDER BY p.Nombre;";*/
+            String plataformasSql = "SELECT p.IdPlataforma, p.Nombre, COUNT(j.IdJuego) AS NumJuegos " +
+                "FROM dbo.Juegos AS j RIGHT OUTER JOIN dbo.Plataformas AS p ON j.IdPlataforma = p.IdPlataforma " +
                 "GROUP BY p.IdPlataforma, p.Nombre " +
                 "ORDER BY p.Nombre;";
 
@@ -179,13 +187,13 @@ namespace RememberTheGame
             acerca.ShowDialog(this);
         }
 
-        private void añadirCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void añadirGeneroToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmGenero addGenero = new FrmGenero(Operaciones.add, this);
             addGenero.ShowDialog(this);
         }
 
-        private void editarCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void editarGeneroToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Debe estar seleccionado el nodo Generos y una sus subcategorias
             if (this.nodoPadre == "Generos" && this.nodoHijo != String.Empty)
@@ -195,9 +203,42 @@ namespace RememberTheGame
             }            
         }
 
-        // POR HACER -------------------
-        private void borrarCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        // POR HACER -------------------<-------------<-------------------------<----------------<-----------<-
+        private void borrarGeneroToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (this.nodoPadre == "Generos" && this.nodoHijo != String.Empty)
+            {
+                String sqlScalar = "SELECT COUNT(j.IdJuego) " +
+                    "FROM dbo.Juegos AS j INNER JOIN dbo.Juegos_has_Generos AS jg ON j.IdJuego = jg.IdJuego RIGHT OUTER JOIN dbo.Generos AS g ON jg.IdGenero = g.IdGenero " +
+                    "WHERE g.Nombre = @generoNombre " +
+                    "GROUP BY g.IdGenero, g.Nombre";
+
+                String sqlDelete = "DELETE from Generos WHERE Nombre = @Nombre";                
+
+                using (SqlConnection cn = this.conexionldb.DameConexionLocalDB())
+                {
+                    cn.Open();
+                    SqlCommand cmmd = new SqlCommand(sqlScalar, cn);
+                    SqlParameter paramGeneroNombre = new SqlParameter("@generoNombre", this.nodoHijo);
+                    cmmd.Parameters.Add(paramGeneroNombre);
+                    Int32 resultado = (Int32)cmmd.ExecuteScalar();
+
+                    // Solo podemos borrar generos cuando no existan juegos asociados
+                    if (resultado != 0)
+                    {
+                        MessageBox.Show("No se puede eliminar un genero mientras siga teniendo juegos asociados.", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;                        
+                    }
+
+                    // Eliminamos el genero
+                    SqlCommand cmmdDelete = new SqlCommand(sqlDelete, cn);
+                    SqlParameter paramDeleteNombre = new SqlParameter("@Nombre", this.nodoHijo);
+                    cmmdDelete.Parameters.Add(paramDeleteNombre);                    
+                    cmmdDelete.ExecuteNonQuery();
+                }
+                RellenarTreeView();
+            }
+            
 
         }
 

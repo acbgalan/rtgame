@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="RememberTheGame.exe" size="29184">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="RememberTheGame.exe" size="30208">
       <assemblyIdentity name="RememberTheGame" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>W8ls3r5jes0pOJo64dAUul5LWq6WGzXm6XBQ45UR/v0=</dsig:DigestValue>
+        <dsig:DigestValue>XzIEr90toZpT94CAmy/soMnOZhbLFyYFuGdYYzPGqn4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -59,7 +59,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>xeDnfRAnFtTX8EPhY2w8G7RU3fxg6+6UtBeT6Edy5Tc=</dsig:DigestValue>
+      <dsig:DigestValue>4KCws/ba3t56avmLhXg0N31A68GsLHeCbnAy3Pn+ebo=</dsig:DigestValue>
     </hash>
   </file>
   <file name="rtgame_log.ldf" size="1048576" writeableType="applicationData">
@@ -68,7 +68,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>cgK3X+v9w6zDvIFaT7p0yAywQKcEAg/+DIuQ+ND/7XA=</dsig:DigestValue>
+      <dsig:DigestValue>4jZjx7kD5NIAUgTzurTj7a3ZiQNMZNco0i87pR0oZuU=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
