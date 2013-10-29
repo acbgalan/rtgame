@@ -45,20 +45,12 @@ namespace RememberTheGame
         internal void RellenarTreeView()
         {
             // IdGnero, Nombre, NumJuegos
-            /*String generosSql = "SELECT g.IdGenero, g.Nombre, COUNT(j.IdJuego) AS NumJuegos " +
-                "FROM dbo.Juegos AS j INNER JOIN dbo.Juegos_has_Generos AS jg ON j.IdJuego = jg.IdJuego INNER JOIN dbo.Generos AS g ON jg.IdGenero = g.IdGenero " +
-                "GROUP BY g.IdGenero, g.Nombre " +
-                "ORDER BY g.Nombre;";*/
             String generosSql = "SELECT g.IdGenero, g.Nombre, COUNT(j.IdJuego) AS NumJuegos " +
                 "FROM dbo.Juegos AS j INNER JOIN dbo.Juegos_has_Generos AS jg ON j.IdJuego = jg.IdJuego RIGHT OUTER JOIN dbo.Generos AS g ON jg.IdGenero = g.IdGenero " +
                 "GROUP BY g.IdGenero, g.Nombre " +
                 "ORDER BY g.Nombre;";
             
             //IdPlataforma, Nombre, NumJuegos
-            /*String plataformasSql = "SELECT p.IdPlataforma, p.Nombre, COUNT(j.IdJuego) AS NumJuegos " +
-                "FROM dbo.Juegos AS j INNER JOIN dbo.Plataformas AS p ON j.IdPlataforma = p.IdPlataforma " +
-                "GROUP BY p.IdPlataforma, p.Nombre " +
-                "ORDER BY p.Nombre;";*/
             String plataformasSql = "SELECT p.IdPlataforma, p.Nombre, COUNT(j.IdJuego) AS NumJuegos " +
                 "FROM dbo.Juegos AS j RIGHT OUTER JOIN dbo.Plataformas AS p ON j.IdPlataforma = p.IdPlataforma " +
                 "GROUP BY p.IdPlataforma, p.Nombre " +
@@ -203,7 +195,6 @@ namespace RememberTheGame
             }            
         }
 
-        // POR HACER -------------------<-------------<-------------------------<----------------<-----------<-
         private void borrarGeneroToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (this.nodoPadre == "Generos" && this.nodoHijo != String.Empty)
@@ -213,7 +204,7 @@ namespace RememberTheGame
                     "WHERE g.Nombre = @generoNombre " +
                     "GROUP BY g.IdGenero, g.Nombre";
 
-                String sqlDelete = "DELETE from Generos WHERE Nombre = @Nombre";                
+                String sqlDelete = "DELETE FROM Generos WHERE Nombre = @Nombre";                
 
                 using (SqlConnection cn = this.conexionldb.DameConexionLocalDB())
                 {
@@ -259,7 +250,38 @@ namespace RememberTheGame
         // POR HACER -------------------
         private void borrarPlataformaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (this.nodoPadre == "Plataformas" && this.nodoHijo != String.Empty)
+            {
+                String sqlScalar = "SELECT COUNT(j.IdJuego) AS NumJuegos " +
+                "FROM dbo.Juegos AS j RIGHT OUTER JOIN dbo.Plataformas AS p ON j.IdPlataforma = p.IdPlataforma " +
+                "WHERE p.Nombre = @plataformaNombre " +
+                "GROUP BY p.IdPlataforma";
 
+                String sqlDelete = "DELETE FROM Plataformas WHERE Nombre = @nombrePlataforma";
+
+                using (SqlConnection cn = this.conexionldb.DameConexionLocalDB())
+                {
+                    cn.Open();
+                    SqlCommand cmmd = new SqlCommand(sqlScalar, cn);
+                    SqlParameter paramPlataformaNombre = new SqlParameter("@plataformaNombre", this.nodoHijo);
+                    cmmd.Parameters.Add(paramPlataformaNombre);
+                    Int32 resultado = (Int32)cmmd.ExecuteScalar();
+
+                    // Solo podemos borrar plataformas que no tengan juegos asociados
+                    if (resultado != 0)
+                    {
+                        MessageBox.Show("No se puede eliminar una plataforma mientras siga teniendo juegos asociados.", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+
+                    // Eliminamos la plataforma
+                    SqlCommand cmmdDelete = new SqlCommand(sqlDelete, cn);
+                    SqlParameter paramDeleteNombre = new SqlParameter("@nombrePlataforma", this.nodoHijo);
+                    cmmdDelete.Parameters.Add(paramDeleteNombre);
+                    cmmdDelete.ExecuteNonQuery();
+                }
+                RellenarTreeView();
+            }
         }
 
 
