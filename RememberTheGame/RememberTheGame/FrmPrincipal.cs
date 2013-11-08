@@ -190,7 +190,7 @@ namespace RememberTheGame
             // Debe estar seleccionado el nodo Generos y una sus subcategorias
             if (this.nodoPadre == "Generos" && this.nodoHijo != String.Empty)
             {
-                FrmGenero editGenero = new FrmGenero(Operaciones.edit, this,  this.nodoPadre, this.nodoHijo);
+                FrmGenero editGenero = new FrmGenero(Operaciones.edit, this, this.nodoPadre, this.nodoHijo);
                 editGenero.ShowDialog(this);
             }            
         }
@@ -233,21 +233,18 @@ namespace RememberTheGame
 
         }
 
-        // POR HACER -------------------
         private void añadirPlataformaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmPlataforma addPlataforma = new FrmPlataforma();
-            addPlataforma.Show();
+            FrmPlataforma addPlataforma = new FrmPlataforma(Operaciones.add, this);
+            addPlataforma.ShowDialog(this);
         }
-
-        // POR HACER -------------------
+        
         private void editarPlataformaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmPlataforma editPlataforma = new FrmPlataforma();
-            editPlataforma.Show();
+            FrmPlataforma editPlataforma = new FrmPlataforma(Operaciones.edit, this, this.nodoPadre, this.nodoHijo);
+            editPlataforma.ShowDialog(this);
         }
 
-        // POR HACER -------------------
         private void borrarPlataformaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (this.nodoPadre == "Plataformas" && this.nodoHijo != String.Empty)

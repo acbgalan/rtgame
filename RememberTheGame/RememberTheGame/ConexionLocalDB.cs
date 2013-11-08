@@ -44,7 +44,6 @@ namespace RememberTheGame
             cnBuilder.AttachDBFilename = this.attachDBFilename;
             cnBuilder.IntegratedSecurity = integratedSecurity;
             cn.ConnectionString = cnBuilder.ConnectionString;
-
             return cn;           
         }
     }

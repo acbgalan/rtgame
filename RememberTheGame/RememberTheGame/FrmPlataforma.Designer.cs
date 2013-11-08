@@ -34,8 +34,6 @@
             this.lbNombre = new System.Windows.Forms.Label();
             this.lbIdPlataformaResultado = new System.Windows.Forms.Label();
             this.lbIdPlataforma = new System.Windows.Forms.Label();
-            this.picLogo = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // txbNombre
@@ -49,21 +47,23 @@
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(152, 147);
+            this.btnCancelar.Location = new System.Drawing.Point(163, 71);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 12;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(71, 147);
+            this.btnAceptar.Location = new System.Drawing.Point(82, 71);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 11;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // lbNombre
             // 
@@ -92,22 +92,13 @@
             this.lbIdPlataforma.TabIndex = 8;
             this.lbIdPlataforma.Text = "Id Plataforma:";
             // 
-            // picLogo
-            // 
-            this.picLogo.Location = new System.Drawing.Point(244, 32);
-            this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(100, 138);
-            this.picLogo.TabIndex = 13;
-            this.picLogo.TabStop = false;
-            // 
             // FrmPlataforma
             // 
             this.AcceptButton = this.btnAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(379, 249);
-            this.Controls.Add(this.picLogo);
+            this.ClientSize = new System.Drawing.Size(252, 109);
             this.Controls.Add(this.txbNombre);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
@@ -118,8 +109,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmPlataforma";
-            this.Text = "FrmPlataforma";
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
+            this.Text = "Plataformas";
+            this.Load += new System.EventHandler(this.FrmPlataforma_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -133,6 +124,5 @@
         private System.Windows.Forms.Label lbNombre;
         private System.Windows.Forms.Label lbIdPlataformaResultado;
         private System.Windows.Forms.Label lbIdPlataforma;
-        private System.Windows.Forms.PictureBox picLogo;
     }
 }

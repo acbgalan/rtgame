@@ -14,12 +14,11 @@ namespace RememberTheGame
     public partial class FrmGenero : Form
     {
         /////////////////////////////////////////////////////////////////////////////////
-        // Campos o atributos
-
-        private FrmPrincipal frmPadre;
+        // Campos o atributos        
 
         private ConexionLocalDB conexionldb;
         private Operaciones tipo_operacion;
+        private FrmPrincipal frmPadre;
         private String nodoPadre;
         private String nodoHijo;
         private Int32 IdGenero;
@@ -27,27 +26,39 @@ namespace RememberTheGame
 
         /////////////////////////////////////////////////////////////////////////////////
         // Constructores
-        public FrmGenero(Operaciones operacion, FrmPrincipal padre)
+
+        //Si es para editar en nodos[0] y nodos[1] deben llegar nodoPadre y nodoHijo respectivamente
+        public FrmGenero(Operaciones operacion, FrmPrincipal padre, params String[] nodos)
         {
             InitializeComponent();
 
-            this.frmPadre = padre;
             this.conexionldb = new ConexionLocalDB();
             this.tipo_operacion = operacion;
-            this.nodoPadre = String.Empty;
-            this.nodoHijo = String.Empty;
+            this.frmPadre = padre;            
 
-        }
+            switch (operacion)
+            {
+                case Operaciones.add:
+                    this.nodoPadre = String.Empty;
+                    this.nodoHijo = String.Empty;
+                    break;
+                case Operaciones.edit:
+                    if (nodos == null)
+                    {
+                        throw new ArgumentException("FrmGenero: El constructor ha recibido una lista de parametros con valor null.");
+                    }
 
-        public FrmGenero(Operaciones operacion, FrmPrincipal padre, String nodoPadre, String nodoHijo)
-        {
-            InitializeComponent();
+                    if (nodos.Length != 2)
+                    {
+                        throw new ArgumentException("FrmGenero: El constructor ha recibido una lista de parametros con un número de elementos no esperado.");
+                    }
 
-            this.frmPadre = padre;
-            this.conexionldb = new ConexionLocalDB();
-            this.tipo_operacion = operacion;
-            this.nodoPadre = nodoPadre;
-            this.nodoHijo = nodoHijo;
+                    this.nodoPadre = nodos[0];
+                    this.nodoHijo = nodos[1];
+                    break;
+                default:   
+                    break;                
+            }
         }
 
 
@@ -127,7 +138,7 @@ namespace RememberTheGame
 
                     if (dresult == DialogResult.Yes)
                     {
-                        // Registramos cambio en la BD
+                        // Guardamos cambio en la BD
                         da.Update(ds, "Generos");
                         // Actualizamos el TreeView del formulario principal
                         frmPadre.RellenarTreeView();
